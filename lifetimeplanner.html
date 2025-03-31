@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Life in Months</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .intro, .truth-box, .planner-box, .ideas-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 3px;
+            margin: 20px 0;
+        }
+        
+        .grid-item {
+            height: 15px;
+            border-radius: 2px;
+        }
+        
+        .sleep { background-color: #3498db; }
+        .work { background-color: #e74c3c; }
+        .eating { background-color: #2ecc71; }
+        .hygiene { background-color: #9b59b6; }
+        .driving { background-color: #f39c12; }
+        .chores { background-color: #1abc9c; }
+        .free { background-color: #f1c40f; }
+        
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            margin-right: 5px;
+            border-radius: 2px;
+        }
+        
+        button {
+            padding: 8px 15px;
+            border-radius: 4px;
+            border: none;
+            font-size: 16px;
+            background-color: #2ecc71;
+            color: white;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background-color: #27ae60;
+        }
+        
+        #todo-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+        
+        #todo-list li {
+            padding: 8px;
+            background-color: #f8f9fa;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .delete-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 2px 6px;
+            cursor: pointer;
+        }
+        
+        .activity-list {
+            columns: 2;
+            column-gap: 20px;
+        }
+        
+        input {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            width: 70%;
+            margin-right: 5px;
+        }
+        
+        @media (max-width: 500px) {
+            .activity-list {
+                columns: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="intro">
+        <h1>Your Life in Months</h1>
+        <p>Each small block represents <strong>1 month</strong> of your life from age 18 to 90.</p>
+        
+        <div class="grid-container" id="life-grid"></div>
+        
+        <div class="legend">
+            <div class="legend-item"><div class="legend-color sleep"></div> Sleep (238)</div>
+            <div class="legend-item"><div class="legend-color work"></div> Work (126)</div>
+            <div class="legend-item"><div class="legend-color eating"></div> Eating (36)</div>
+            <div class="legend-item"><div class="legend-color hygiene"></div> Hygiene (27)</div>
+            <div class="legend-item"><div class="legend-color driving"></div> Driving (18)</div>
+            <div class="legend-item"><div class="legend-color chores"></div> Chores (36)</div>
+            <div class="legend-item"><div class="legend-color free"></div> Free Time (334)</div>
+        </div>
+    </div>
+    
+    <div class="truth-box">
+        <h2>The Truth About Your Free Time</h2>
+        <p>That yellow free time? About <strong>28 years</strong> total. But most of it disappears into screens.</p>
+        <p>Social media, shows, games - they quietly eat up about <strong>95%</strong> of that time.</p>
+        <p>What remains? Maybe <strong>1.5 years</strong> of truly free, meaningful time.</p>
+    </div>
+    
+    <div class="planner-box">
+        <h2>Plan Better Days</h2>
+        <p>Add activities to reclaim your time:</p>
+        
+        <div>
+            <input type="text" id="new-todo" placeholder="What will you do today?">
+            <button id="add-todo">Add</button>
+        </div>
+        
+        <ul id="todo-list"></ul>
+    </div>
+    
+    <div class="ideas-box">
+        <h2>100 Better Ways to Spend Time</h2>
+        <div class="activity-list">
+            <ol>
+                <li>Manifest everything</li>
+                    <li>Read a physical book</li>
+                    <li>Learn to cook a new dish</li>
+                    <li>Go for a walk in nature</li>
+                    <li>Try meditation</li>
+                    <li>Learn a musical instrument</li>
+                    <li>Start a garden</li>
+                    <li>Visit a museum</li>
+                    <li>Learn a new language</li>
+                    <li>Volunteer in your community</li>
+                    <li>Try a new sport</li>
+                    <li>Paint or draw</li>
+                    <li>Bake something from scratch</li>
+                    <li>Go stargazing</li>
+                    <li>Learn to knit or crochet</li>
+                    <li>Write a short story</li>
+                    <li>Try yoga</li>
+                    <li>Organize your space</li>
+                    <li>Learn photography</li>
+                    <li>Visit a local market</li>
+                    <li>Start a journal</li>
+                    <li>Learn basic carpentry</li>
+                    <li>Go birdwatching</li>
+                    <li>Try a new board game</li>
+                    <li>Learn to dance</li>
+                    <li>Make homemade pizza</li>
+                    <li>Go to a live performance</li>
+                    <li>Learn calligraphy</li>
+                    <li>Try rock climbing</li>
+                    <li>Start a scrapbook</li>
+                    <li>Learn to sew</li>
+                    <li>Go fishing</li>
+                    <li>Try pottery</li>
+                    <li>Learn magic tricks</li>
+                    <li>Visit an animal shelter</li>
+                    <li>Learn to juggle</li>
+                    <li>Try geocaching</li>
+                    <li>Make homemade jam</li>
+                    <li>Learn origami</li>
+                    <li>Go to a flea market</li>
+                    <li>Learn to whistle with fingers</li>
+                    <li>Try stand-up paddleboarding</li>
+                    <li>Make a time capsule</li>
+                    <li>Learn to tie knots</li>
+                    <li>Try archery</li>
+                    <li>Make homemade soap</li>
+                    <li>Learn to play chess</li>
+                    <li>Try indoor gardening</li>
+                    <li>Learn to identify plants</li>
+                    <li>Make a vision board</li>
+            </ol>
+            <ol start="51">
+                <li>Try a new hairstyle</li>
+                    <li>Learn to make cocktails</li>
+                    <li>Go to a comedy club</li>
+                    <li>Learn to change a tire</li>
+                    <li>Try a new hiking trail</li>
+                    <li>Learn basic first aid</li>
+                    <li>Make a family tree</li>
+                    <li>Try a new type of tea</li>
+                    <li>Learn to make candles</li>
+                    <li>Go to a planetarium</li>
+                    <li>Learn to identify constellations</li>
+                    <li>Try making pasta from scratch</li>
+                    <li>Learn to solve a Rubik's cube</li>
+                    <li>Try a new workout routine</li>
+                    <li>Learn to make bread</li>
+                    <li>Visit a historical site</li>
+                    <li>Try a new craft</li>
+                    <li>Learn to make jewelry</li>
+                    <li>Go to a book reading</li>
+                    <li>Learn basic car maintenance</li>
+                    <li>Try a new type of cuisine</li>
+                    <li>Learn to identify birds by song</li>
+                    <li>Make homemade ice cream</li>
+                    <li>Learn to play poker</li>
+                    <li>Try a new hairstyle</li>
+                    <li>Learn to make preserves</li>
+                    <li>Go to an art exhibition</li>
+                    <li>Learn to identify mushrooms</li>
+                    <li>Try a new type of dance</li>
+                    <li>Learn to make fermented foods</li>
+                    <li>Go to a poetry reading</li>
+                    <li>Learn to identify trees</li>
+                    <li>Try a new type of coffee</li>
+                    <li>Learn to make cheese</li>
+                    <li>Go to a farmers market</li>
+                    <li>Learn to identify insects</li>
+                    <li>Try a new type of bread</li>
+                    <li>Learn to make pickles</li>
+                    <li>Go to a local festival</li>
+                    <li>Learn to identify animal tracks</li>
+                    <li>Try a new type of chocolate</li>
+                    <li>Learn to make kombucha</li>
+                    <li>Go to a craft fair</li>
+                    <li>Learn to identify rocks</li>
+                    <li>Try a new type of beer</li>
+                    <li>Learn to make yogurt</li>
+                    <li>Go to a car show</li>
+                    <li>Learn to identify clouds</li>
+                    <li>Try a new type of wine</li>
+                    <li>Write a letter to a friend</li>
+
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // Create life grid
+        const gridContainer = document.getElementById('life-grid');
+        const categories = [
+            { class: 'sleep', months: 238 },
+            { class: 'work', months: 126 },
+            { class: 'eating', months: 36 },
+            { class: 'hygiene', months: 27 },
+            { class: 'driving', months: 18 },
+            { class: 'chores', months: 36 },
+            { class: 'free', months: 334 }
+        ];
+        
+        categories.forEach(cat => {
+            for (let i = 0; i < cat.months; i++) {
+                const div = document.createElement('div');
+                div.className = `grid-item ${cat.class}`;
+                gridContainer.appendChild(div);
+            }
+        });
+        
+        // Todo list
+        const todoInput = document.getElementById('new-todo');
+        const addTodoBtn = document.getElementById('add-todo');
+        const todoList = document.getElementById('todo-list');
+        
+        function addTodo() {
+            const text = todoInput.value.trim();
+            if (text) {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <span>${text}</span>
+                    <button class="delete-btn">×</button>
+                `;
+                todoList.appendChild(li);
+                todoInput.value = '';
+                
+                li.querySelector('.delete-btn').addEventListener('click', () => {
+                    li.remove();
+                });
+            }
+        }
+        
+        addTodoBtn.addEventListener('click', addTodo);
+        todoInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') addTodo();
+        });
+    </script>
+</body>
+</html>                 
